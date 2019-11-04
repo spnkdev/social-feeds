@@ -1,0 +1,27 @@
+{
+  "name": "social-feeds",
+  "version": "0.0.1",
+  "description": "Gather user feeds from different social networks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spnkdev/social-feeds.git"
+  },
+  "author": "spnkdev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spnkdev/social-feeds/issues"
+  },
+  "homepage": "https://github.com/spnkdev/social-feeds#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.6.0",
+    "eslint-config-strongloop": "^2.1.0"
+  },
+  "dependencies": {
+    "twit": "^2.2.11"
+  }
+}
