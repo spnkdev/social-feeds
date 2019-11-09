@@ -1,5 +1,5 @@
-const Twitter = require('./Twitter');
-const Instagram = require('./Instagram');
+const { Instagram, Twitter } = require('./index');
+const { getValidServices } = require('../validators/index');
 
 /**
  *
@@ -7,8 +7,6 @@ const Instagram = require('./Instagram');
  * @type {Array<import('../models/UserFeed').UserFeed>}
  */
 
-
-const availableServices = ['twitter', 'instagram'];
 
 const SocialService = (services) => {
 
@@ -24,7 +22,7 @@ const SocialService = (services) => {
       mainFeed = [...mainFeed, ...serviceFeeds];
 
     }
-    console.log('Main Feed', mainFeed.length);
+    console.log('Loaded Feed', mainFeed);
     return mainFeed;
   };
 
@@ -44,31 +42,16 @@ const getSubscribedServices = (services) => {
   return subscribedServices;
 };
 
-const getValidServices = (services) => {
-  const validServices = [];
-
-  services.forEach(service => {
-    const serviceToValidate = service.name.toLowerCase().trim();
-    // if service is available and is not already subscribed
-    if (availableServices.indexOf(serviceToValidate) !== -1
-        && validServices.indexOf(serviceToValidate) === -1) {
-      validServices.push(service);
-    }
-  });
-
-  return validServices;
-};
-
 
 const getService = (service) => {
   const name = service.name.toLowerCase().trim();
-  const { config, options} = service;
+  const { config, options } = service;
 
   switch (name) {
     case 'twitter':
       return Twitter(config, options);
     case 'instagram':
-      return Instagram(config);
+      return Instagram(config, options);
     default:
       break;
   }

@@ -1,14 +1,15 @@
 /**
  * Core
- * @typedef {Object} CoreServices
- * @property {Function} getFeed The feed from the selected service.
+ * @typedef {Object} Core
+ * @property {Function} getFeed Gets the feed from the selected service.
  */
 
 /**
- * @type {CoreServices}
+ * @type {Core}
  */
 const core = {
-  getFeed() {},
+  getFeed() { },
 };
+
 
 module.exports = core;

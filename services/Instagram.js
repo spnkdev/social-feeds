@@ -3,7 +3,7 @@ require('./Core');
 /**
  *
  * @typedef {Object} InstagramService
- * @type {import('./Core').CoreServices}
+ * @type {import('./Core').Core}
  */
 
 /**
@@ -11,13 +11,12 @@ require('./Core');
  * @param {string} config
  * @returns {InstagramService}
  */
-const Instagram = (config) => {
-  // const feedEndpoint = '';
+const Instagram = (config, options) => {
 
   const getFeed = () => {
-    // console.log('This is an instagram feed');
     return ['This is an instagram feed'];
   };
+
   return {
     getFeed,
   };

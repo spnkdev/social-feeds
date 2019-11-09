@@ -1,8 +1,10 @@
 const SocialService = require('./services/Social');
 
-
-// Example options
-const servicesToSubscribe = [
+/**
+ * Example services config
+ * @type {import('./models/ServiceConfig').ServicesConfig}
+ */
+const services = [
   {
     name: 'twitter',
     config: {
@@ -12,7 +14,7 @@ const servicesToSubscribe = [
       access_token_secret: 'j8NjU10FqZsc13POtULrqhsY3cfxu66mVQuCVQe5wV6B5',
     },
     options: {
-      users: ['spnkdev', 'allkpop'],
+      users: ['izsubs', 'SayakaNeon'],
       queryOptions: {
         count: 10, trim_user: true, exclude_replies: true, include_rts: false,
       },
@@ -34,6 +36,6 @@ const servicesToSubscribe = [
 ];
 
 
-SocialService(servicesToSubscribe).getFeed();
+SocialService(services).getFeed();
 
 module.exports = SocialService;
