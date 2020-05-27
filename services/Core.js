@@ -1,15 +1,21 @@
 /**
  * Core
- * @typedef {Object} Core
- * @property {Function} getFeed Gets the feed from the selected service.
+ * @typedef {{buildFeed: Function}} CoreService
+ * @param {import('../models/ServiceConfig').ClientConfig} clientConfig
+ * @param {import('../models/ServiceConfig').QueryConfig} queryConfig
  */
+const core = (clientConfig, queryConfig) => {
 
-/**
- * @type {Core}
- */
-const core = {
-  getFeed() { },
+  const buildFeed = async() => {
+  /**
+   * @type {import('../models/Feed').Feed}
+   */
+    const feed = [];
+    return feed;
+  };
+  return {
+    buildFeed,
+  };
 };
-
 
 module.exports = core;

@@ -14,7 +14,8 @@ require('./Core');
 const Instagram = (config, options) => {
 
   const getFeed = () => {
-    return ['This is an instagram feed'];
+    const betafeed =['This is an instagram feed']
+    return betafeed
   };
 
   return {

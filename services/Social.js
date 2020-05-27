@@ -1,29 +1,26 @@
 const { Instagram, Twitter } = require('./index');
 const { getValidServices } = require('../validators/index');
 
+
 /**
- *
- * @typedef {Object} UserFeeds
- * @type {Array<import('../models/UserFeed').UserFeed>}
+ * @param {import('../models/ServiceConfig').ServicesConfig} servicesConfig Services Configuration
  */
+const SocialService = (servicesConfig) => {
 
-
-const SocialService = (services) => {
-
-  const subscribedServices = getSubscribedServices(services);
-
+  const subscribedServices = getSubscribedServices(servicesConfig);
+  /**
+   * Returns the aggreated feed from all the specified services
+   */
   const getFeed = async() => {
     /**
-     * @type {UserFeeds}
+     * @type {import('../models/Feed').Feed}
      */
-    let mainFeed = [];
+    let feed = [];
     for (const service of subscribedServices) {
-      const serviceFeeds = await service.getFeed();
-      mainFeed = [...mainFeed, ...serviceFeeds];
-
+      const serviceFeeds = await service.buildFeed();
+      feed = [...feed, ...serviceFeeds];
     }
-    console.log('Loaded Feed', mainFeed);
-    return mainFeed;
+    return feed;
   };
 
   return {
@@ -42,16 +39,15 @@ const getSubscribedServices = (services) => {
   return subscribedServices;
 };
 
-
 const getService = (service) => {
   const name = service.name.toLowerCase().trim();
-  const { config, options } = service;
+  const { clientConfig, queryConfig } = service;
 
   switch (name) {
     case 'twitter':
-      return Twitter(config, options);
+      return Twitter(clientConfig, queryConfig);
     case 'instagram':
-      return Instagram(config, options);
+      return Instagram(clientConfig, queryConfig);
     default:
       break;
   }
