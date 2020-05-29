@@ -1,4 +1,4 @@
 module.exports = {
-  Twitter: require('./Twitter'),
-  Instagram: require('./Instagram'),
+  Twitter: require('./Twitter/Twitter'),
+  Instagram: require('./Instagram/Instagram'),
 };
