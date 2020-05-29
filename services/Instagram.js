@@ -1,25 +1,25 @@
-require('./Core');
+// require('../Core');
 
 /**
  *
  * @typedef {Object} InstagramService
- * @type {import('./Core').Core}
+ * @type {import('./Core').CoreService}
  */
 
-/**
- *
- * @param {string} config
- * @returns {InstagramService}
- */
+// /**
+//  *
+//  * @param {string} config
+//  * @returns {InstagramService}
+//  */
 const Instagram = (config, options) => {
 
-  const getFeed = () => {
-    const betafeed =['This is an instagram feed']
-    return betafeed
+  const buildFeed = () => {
+    const betafeed = ['This is an instagram feed'];
+    return betafeed;
   };
 
   return {
-    getFeed,
+    buildFeed,
   };
 };
 
